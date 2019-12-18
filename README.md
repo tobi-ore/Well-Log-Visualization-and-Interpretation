@@ -1,8 +1,9 @@
 # Well-Log-Visualization-and-Interpretation
-## 1) Objectives
+
+## Objectives
 The main objective of this project is to apply tools used in data science to carry out a basic petrophysical well log analysis. This involves transforming the well log measurements into reservoir properties like porosity,  clay content etc. The uptmost goal is to have as much information about the subsurface as possible.
 
-## 2) Data Source
+## Data Source
 The format of the data utilized for this project is the Log ASCII Standard (LAS) is a standard file-format common in the oil-and-gas and water well industries to store well log information. This file type is formatted as shown below where the `~CURVE INFORMATION` is the column header.
 
 ```
@@ -83,7 +84,7 @@ Gryc, George, Ed., 1988, Geology and exploration of the National Petroleum
 ```
 The stratigraphic information is used in the interpretation of the well log data.
 
-## 3) Implementation
+## Implementation
 The analysis of the well logs will be carried out using Python. However, bash and wget will be utilized to download and manipulate the data into the desired format.
 
 __Software__: `GitBash` and `Python`
@@ -93,7 +94,7 @@ To download the data, run  `bash data_download.sh` in the command line.
 
 The `project.py` python script should be run in a python IDLE. 
 
-## 4) Expected Products
+## Expected Products
 _log images_
 A folder that contains all the well log images named after the name of the respective wells.
 
@@ -105,3 +106,15 @@ Three csv files that gives information about the availability of logs in each we
 
 _interpreted logs_
 A folder that contains the final csv for each wells with the calculated properties.
+
+## Author
+
+[Tobi Ore](https://github.com/tobi-ore)
+
+## License
+
+[This project is licensed under the MIT License](https://choosealicense.com/licenses/mit/)
+
+## Acknowledgments
+
+[Dr Amy Hessl](https://github.com/hessllab)
