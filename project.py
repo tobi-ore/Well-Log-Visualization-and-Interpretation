@@ -4,9 +4,7 @@ Created on Wed Dec  4 09:34:14 2019
 
 @author: Tobi
 
-description: This project involves using an AI-based model to predict well log measurements. 
-
-data: The data utilized is a fairly large dataset of well logs from the Volve field located in the North Sea. 
+description: This project involves using an open source tool to visualize and analysize well logs. 
 
 """
 # import required packages and libraries
@@ -20,7 +18,7 @@ import lasio
 # load the well data into one DataFrame
 data = pd.DataFrame()  #empty DataFrame to serve as container for the data
 
-directory = r"C:\Users\Tobi\Documents\Open_Data_Science\Project\data"  #Directory containing the well data in .csv format
+directory = r"C:\Users\Tobi\Documents\Open_Data_Science\Project\data"  #Directory containing the well data in .las format
 
 #loops through all the files in the directory, reads the csv and appends it to the data DataFrame
 for file in os.listdir(directory):
@@ -307,20 +305,3 @@ else:
 #plot for each well
 for well in well_BS_CALI:
     data_dict[well].to_csv(r'{}\Interpreted_Logs\{}.csv'.format(os.path.split(directory)[0], well))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
