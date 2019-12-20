@@ -49,52 +49,17 @@ MudWgt  .LBS/GAL             :MudWgt
 ```
 Data of this nature is in abundance due to the high volume of oil and gas exploration. In this project, data from the Department of the Interior U.S. Geological Survey repository of Wildcat Wells in the National Petroleum Reserve in Alaska will be used (https://certmapper.cr.usgs.gov/data/PubArchives/OF00-200/WELLS/WELLIDX.HTM). However, this project is not exclusive to this data, therefore, the workflow and codes could be applied to data from other database.
 
-This well logs are subsurface informations and therefore have associated stratigraphic data, stored as text files. An example of this text file for the LAS file above is:
-```
-
-Dept. of the Interior
-U.S. Geological Survey
-Energy Resources Team
-
-Selected Data from Fourteen Wildcat Wells in 
-the National Petroleum Reserve in Alaska
-
-USGS Open File Report 00-200 
-
-
-Wildcat Well Walakpa 1 - Depths to Selected Stratigraphic Horizons
-
-WELL NAME         ROCK UNIT                                   DEPTH, FEET
-WALAKPA 1         Surficial Deposits and/or Gubik Formation      19
-WALAKPA 1         Torok Formation                                50
-WALAKPA 1         Pebble Shale Unit                            1700
-WALAKPA 1         Kingak Shale                                 2090
-WALAKPA 1         Sag River Sandstone                          3220
-WALAKPA 1         Shublik Formation                            3260
-WALAKPA 1         Basement Complex                             3630
-
-Data Source
-Table 15.3. - Total depth and depths to selected stratigraphic horizons
-for Government-drilled wells on the North Slope of Alaska., 
-in:
-
-Gryc, George, Ed., 1988, Geology and exploration of the National Petroleum
-     Reserve in Alaska, 1974 to 1982, U.S. Geological Survey Professional 
-     Paper 1399, Pgs. 322 - 324.
-```
-The stratigraphic information is used in the interpretation of the well log data.
-
 ## Implementation
-The analysis of the well logs will be carried out using Python. However, bash and wget will be utilized to download and manipulate the data into the desired format.
+The analysis of the well logs will be carried out using R and Python. However, bash and wget will be utilized to download and manipulate the data into the desired format.
 
-__Software__: `GitBash`, R and `Python`
-__Packages__: `wget`, `tidyverse`, `ggplot2`, `reticulate`, and `lasio`.
+__Software__: `GitBash`, `R` and `Python`
+__Packages__: `wget`, `bash`, `tidyverse`, `ggplot2`, `lasio` and `reticulate`
 
 To download the data, run  `bash data_download.sh` in the command line.
 
-After downloading the files from the database, using the reticulate package convert the format of the files to csv using this command `source_python('data_conversion.py')`. check the project.Rmd file for more details.
+To convert the data format from Las to csv which will be used as the input in R, a python script is utilized. The `reticulate` package is used to run the python script from R. If you don't have Python, skip this step and use the data in the data_csv folder to run the rest of the R script.
 
-Run the data_manipulation.R scripts to carryout the operations. check the project.Rmd file for more details.
+The various manipulations and operations on the well logs in done by running the R script called `data_manipulation.R`.
 
 ## Expected Products
 _Log images_
