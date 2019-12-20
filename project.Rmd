@@ -267,7 +267,7 @@ vsh_plotting <- function(file){
 }
 ```
 
-The input for this funtion is the name of the csv file:
+The input for this function is the name of the csv file:
 ```{r}
 #test
 vsh_plotting("AW1.csv")
