@@ -60,7 +60,8 @@ To download the data, run  `bash data_download.sh` in the command line.
 
 To convert the data format from Las to csv which will be used as the input in R, a python script is utilized. The `reticulate` package is used to run the python script from R. If you don't have Python, skip this step and use the data in the data_csv folder to run the rest of the R script.
 
-The various manipulations and operations on the well logs in done by running the R script called `data_manipulation.R`.
+The various manipulations and operations on the well logs in done by running the R script called `data_manipulation.R`. This script creates three functions: 
+`log_plotting(file)`, `vsh_phi_calc(file)`, and `vsh_plotting(file)`. The input of this function "file" is the name of the well data in csv format. e.g AW1.csv
 
 ## Expected Products
 The Output folder contains all the expected products from this project. To test this code, do not download the Output folder from this repo. Again, the data_csv folder is also an output which is used by the R script. download this folder iof you do not have Python on your system.
