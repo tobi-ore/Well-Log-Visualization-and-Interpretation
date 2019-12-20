@@ -18,7 +18,7 @@ dir.create(file.path("./Output", "VSH_Images"))
 
 
 #data visualization
-for(file in list.files(path = "./data_csv")){
+log_plotting <- function(file){
   data <- read.csv(sprintf("./data_csv/%s", file), header=T)
   
   well <- sub(pattern = "(.*)\\..*$", replacement = "\\1", basename(file))  #removes the extension in the filename
@@ -102,7 +102,7 @@ for(file in list.files(path = "./data_csv")){
 }
 
 #Petrophysical calculation
-for(file in list.files(path = "./data_csv")){
+vsh_phi_calc <- function(file){
   well <- sub(pattern = "(.*)\\..*$", replacement = "\\1", basename(file))
   sub_data <- read.csv(sprintf("./data_csv/%s", file), header=T)
   
@@ -128,7 +128,7 @@ for(file in list.files(path = "./data_csv")){
 }
 
 #Plotting the Estimated Vshale
-for(file in list.files(path = "./Output/Interpreted_Logs")){
+vsh_plotting <- function(file){
   data <- read.csv(sprintf("./Output/Interpreted_Logs/%s", file), header=T)
   well <- sub(pattern = "(.*)\\..*$", replacement = "\\1", basename(file))
   
