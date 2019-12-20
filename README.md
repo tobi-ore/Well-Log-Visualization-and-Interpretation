@@ -53,6 +53,7 @@ Data of this nature is in abundance due to the high volume of oil and gas explor
 The analysis of the well logs will be carried out using R and Python. However, bash and wget will be utilized to download and manipulate the data into the desired format.
 
 __Software__: `GitBash`, `R` and `Python`
+
 __Packages__: `wget`, `bash`, `tidyverse`, `ggplot2`, `lasio` and `reticulate`
 
 To download the data, run  `bash data_download.sh` in the command line.
@@ -62,6 +63,8 @@ To convert the data format from Las to csv which will be used as the input in R,
 The various manipulations and operations on the well logs in done by running the R script called `data_manipulation.R`.
 
 ## Expected Products
+The Output folder contains all the expected products from this project. To test this code, do not download the Output folder from this repo. Again, the data_csv folder is also an output which is used by the R script. download this folder iof you do not have Python on your system.
+
 _Log images_
 A folder that contains all the well log images named after the name of the respective wells.
 
