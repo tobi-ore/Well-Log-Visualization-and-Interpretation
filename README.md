@@ -87,24 +87,23 @@ The stratigraphic information is used in the interpretation of the well log data
 ## Implementation
 The analysis of the well logs will be carried out using Python. However, bash and wget will be utilized to download and manipulate the data into the desired format.
 
-__Software__: `GitBash` and `Python`
-__Packages__: `wget`, `bash`, `numpy`, `matplotlib`, `lasio` and `pandas`
+__Software__: `GitBash`, R and `Python`
+__Packages__: `wget`, `tidyverse`, `ggplot2`, `reticulate`, and `lasio`.
 
 To download the data, run  `bash data_download.sh` in the command line.
 
-The `project.py` python script should be run in a python IDLE. 
+After downloading the files from the database, using the reticulate package convert the format of the files to csv using this command `source_python('data_conversion.py')`. check the project.Rmd file for more details.
+
+Run the data_manipulation.R scripts to carryout the operations. check the project.Rmd file for more details.
 
 ## Expected Products
-_log images_
+_Log images_
 A folder that contains all the well log images named after the name of the respective wells.
 
 _Vsh images_
 A folder that contains the plot of calculated volume of shale for each wells.
 
-_cross match tables_
-Three csv files that gives information about the availability of logs in each wells.
-
-_interpreted logs_
+_Interpreted logs_
 A folder that contains the final csv for each wells with the calculated properties.
 
 ## Author

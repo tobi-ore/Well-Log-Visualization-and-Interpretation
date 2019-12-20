@@ -47,6 +47,8 @@ The original format of the data used in this project is .LAS, a special text fil
 
 To use this python script in R, a python 2 or earlier version must exist in the engine. The `reticulate` package is used to call this script in R. When this script is called, it loops through the data a create the equivalent .csv file without the metadata i.e only the values and the column is stored.  
 
+Note: If you don't have Python on your system, the data has already been converted and stored in the repository, just download the data_csv folder to test the other codes.
+
 ```{r}
 source_python('data_conversion.py')
 ```
