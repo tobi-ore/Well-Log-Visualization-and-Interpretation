@@ -79,7 +79,7 @@ On the first track, the Gamma ray log is plot. Resistivity log is  plot on the s
 The image is stored in a directory named "Log_Images" and the name of the image corresponds to the well.
 ```{r}
 #data visualization
-for(file in list.files(path = "./data_csv")){
+log_plotting <- function(file){
   data <- read.csv(sprintf("./data_csv/%s", file), header=T)
   
   well <- sub(pattern = "(.*)\\..*$", replacement = "\\1", basename(file))  #removes the extension in the filename
@@ -162,7 +162,11 @@ for(file in list.files(path = "./data_csv")){
   ggsave(sprintf("./Output/Log_Images/%s.png", well), plot=gt)
 }
 ```
-
+The input for this funtion is the name of the csv file:
+```{r}
+#test
+log_plotting("AW1.csv")
+```
 ## Some Petrophysical Calculations
 __Volume of shale__
 
@@ -177,7 +181,7 @@ The result of this step is appended to the data as new columns called PHID and P
 All the estimated values will be appended to the data and saved in a new text document named by the names of the well.This text file will be saved in a new directory called "Interpreted_Logs"
 ```{r}
 #Petrophysical calculation
-for(file in list.files(path = "./data_csv")){
+vsh_phi_calc <- function(file){
   well <- sub(pattern = "(.*)\\..*$", replacement = "\\1", basename(file))
   sub_data <- read.csv(sprintf("./data_csv/%s", file), header=T)
   
@@ -201,9 +205,17 @@ for(file in list.files(path = "./data_csv")){
   #store the new interpreted well log data in the global environment as the well name
   assign(as.character(well), sub_data, envir= .GlobalEnv)
 }
+```
+The input for this funtion is the name of the csv file:
+```{r}
+#test
+vsh_phi_calc("AW1.csv")
+```
 
+The estimated Vshales is plot with the corresponding Gamma ray log. The function below is a script to carryout this task.
+```{r}
 #Plotting the Estimated Vshale
-for(file in list.files(path = "./Output/Interpreted_Logs")){
+vsh_plotting <- function(file){
   data <- read.csv(sprintf("./Output/Interpreted_Logs/%s", file), header=T)
   well <- sub(pattern = "(.*)\\..*$", replacement = "\\1", basename(file))
   
@@ -253,4 +265,10 @@ for(file in list.files(path = "./Output/Interpreted_Logs")){
   grid.draw(gt)
   ggsave(sprintf("./Output/VSH_Images/%s.png", well), plot=gt)
 }
+```
+
+The input for this funtion is the name of the csv file:
+```{r}
+#test
+vsh_plotting("AW1.csv")
 ```
